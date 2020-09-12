@@ -18,18 +18,19 @@
     <div class="container" id="vista">
         <header class="text-center">
             <h1>Listado de películas</h1><button class="btn btn-success" name="añadir" id="masPeli">Añadir película</button>
+   
 
             Día : <?php echo date("d-m-Y"); ?>
         </header>
         <div class="ext-center">
-            <hr />
+            <hr>
             <table id="taulaPelis" class="table table-responsive table-bordered table-striped">
                 <thead>
                     <th><strong>nombre Pelicula</strong></th>
                     <th><strong>director</strong></th>
                     <th><strong>Año</strong></th>
-                    <th><strong>Poster</strong></th>
                     <th><strong>Synopsis</strong></th>
+                    <th><strong>Poster</strong></th>
                 </thead>
                 <tbody>
                     <?php
@@ -59,7 +60,7 @@
                     ?>
                 </tbody>
             </table>
-            <a href="../index.php"> <i class="fa fa-arrow-circle-left"></i> Volver a la página principal</a>
+            <a href="../index.php" style="color:black"> <i class="fa fa-arrow-circle-left"></i> Volver a la página principal</a>
             <hr />
         </div>
         <footer class="col-lg-12 text-center">

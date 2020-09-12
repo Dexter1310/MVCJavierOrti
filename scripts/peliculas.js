@@ -10,7 +10,6 @@ $(document).ready(function () {
     });
 
     $('#masPeli').click(function () {
-
         location.href = '../';
     })
 

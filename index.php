@@ -12,7 +12,7 @@ $asd = $nuev->eliminar($_POST['id'],$_POST['pelidel']); }
 if(isset($_POST['editar'])){
  $id=$_POST['id'];$p=$_POST['pelidel'];$d=$_POST['director'];$a=$_POST['ano'];$po=$_POST['poster'];$de=$_POST['descripcion'];$btn="Editar";$sub="editarOk";$h3="Editar película <scan style='color:blue;'>".$p."</scan>";
  }else{
-    $p="";$d="";$a="";$po="";$de="";$btn="Añadir";$sub="envio";$h3="Nueva película";
+ $p="";$d="";$a="";$po="";$de="";$btn="Añadir";$sub="envio";$h3="Nueva película";
 }
 if(isset($_POST['editarOk'])){
     include "models/modelo.php"; $nuev = new Service();
@@ -28,6 +28,7 @@ if(isset($_POST['editarOk'])){
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="scripts/peliculas.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@ if(isset($_POST['editarOk'])){
                 <form action="#" method="post" class="col-sm-10">
                     <h3><?php echo $h3;?></h3>
                     <input type="hidden" name="id" class="form-control" value="<? echo $id;?>" required />
-                    Nombre Película<input type="text" name="nom" class="form-control" placeholder="Nombre película" value="<? echo $p;?>" required />
+                    Nombre Película<input type="text" name="nom" id="nomb" class="form-control" placeholder="Nombre película" value="<? echo $p;?>" required />
                     Director: <input type="text" name="director" class="form-control" placeholder="Nombre director" value="<? echo $d;?>" required />
                     Año: <input type="number" name="ano" class="form-control" placeholder="Año de estreno" value="<? echo $a;?>" required />
                     Poster: <input type="text" name="imagen" class="form-control" placeholder="Imagen url" value="<? echo $po;?>" required />
@@ -57,8 +58,14 @@ if(isset($_POST['editarOk'])){
                 <h3>Listado de Películas</h3>
                 <a href="controllers/controlador.php"><i class="fa fa-align-justify"></i> Acceder al listado de películas</a>
                 <hr />
+
+                <?php include "models/modelo.php";$nuevo = new Service();
+                    $asd = $nuevo->slider();
+                    ?>
+
             </div>
         </div>
+        <hr>
         <footer class="col-lg-12 text-center">
             <scan style="color:blue">Autor:</scan><i>Javier Orti Marina</i>
         </footer>

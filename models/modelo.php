@@ -69,5 +69,32 @@ class Service {
         }
         
     }
+    
+    public function slider(){
+        self::setNames();
+        $stmt=$this->db->prepare("SELECT * FROM peliculas");
+        ?>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" style='width:30%;margin-left:35%;display:flex;'>
+
+    <div class="carousel-inner" >
+       <div class='item active' ><img src='https://img.microsiervos.com/Peliculas-Ready-Player-One.jpg' ></div>
+      <?php
+        $stmt->execute();
+         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){          
+    echo "<div class='item' ><img src='". $row['poster']."' alt='".$row['nomPeli']."'  title='".$row['nomPeli']."'></div>";
+              
+         }
+         ?>   <!-- Left and right controls -->
+           </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">siguient</span>
+</a></div><?php
+        
+    }
 }
 ?>
